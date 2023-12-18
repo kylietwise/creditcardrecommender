@@ -40,7 +40,10 @@ def index():
 
         # Generate static HTML content
         with open("docs/index.html", "w") as f:
-            f.write(f"<p>Use {selected_card} for maximum rewards in the {category} category.</p>" if selected_card else f"<p>No cards available for the {category} category.</p>")
+            if selected_card:
+                f.write(f"<p>Use {selected_card} for maximum rewards in the {category} category.</p>")
+            else:
+                f.write(f"<p>No cards available for the {category} category.</p>")
 
     return render_template('index.html', selected_card=selected_card, category=category)
 
