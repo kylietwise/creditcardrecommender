@@ -29,11 +29,11 @@ def index():
 
         # Example credit cards and their rewards rates for different categories (as percentages)
         credit_cards = {
-        "Bilt": {"dining": 5,"travel": 2,"lyft": 3, "rent": 1, "shopping": 1},
-        "ChaseSapphirePreferred": {"dining": 3, "streaming": 3, "online groceries": 3, "travel": 2, "groceries": 2},
-        "ChaseSapphireReserve": {"shopping": 4, "gas": 3}
-        # Add more cards and categories as needed
-    }
+            "CardA": {"dining": 5, "shopping": 1},
+            "CardB": {"dining": 3, "groceries": 2},
+            "CardC": {"shopping": 4, "gas": 3}
+            # Add more cards and categories as needed
+        }
 
         # Choose the best credit card for the given category
         selected_card = choose_credit_card(credit_cards, purchase_amount, category)
