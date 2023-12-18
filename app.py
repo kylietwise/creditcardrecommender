@@ -1,6 +1,6 @@
 # app.py
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -38,12 +38,7 @@ def index():
         # Choose the best credit card for the given category
         selected_card = choose_credit_card(credit_cards, purchase_amount, category)
 
-        # Generate static HTML content
-        with open("docs/index.html", "w") as f:
-            if selected_card:
-                f.write(f"<p>Use {selected_card} for maximum rewards in the {category} category.</p>")
-            else:
-                f.write(f"<p>No cards available for the {category} category.</p>")
+        return render_template('result.html', selected_card=selected_card, category=category)
 
     return render_template('index.html', selected_card=selected_card, category=category)
 
