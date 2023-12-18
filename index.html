@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Recommender</title>
+</head>
+<body>
+    <h1>Credit Card Recommender</h1>
+    <form method="post" action="/">
+        <label for="purchase_amount">Enter the purchase amount: $</label>
+        <input type="number" name="purchase_amount" required>
+        <br>
+        <label for="category">Select the category:</label>
+        <select name="category" required>
+            <option value="dining">Dining</option>
+            <option value="shopping">Shopping</option>
+            <option value="travel">Travel</option>
+            <option value="lyft">Lyft</option>
+            <option value="rent">Rent</option>
+            <option value="streaming">Streaming</option>
+            <option value="online groceries">Online Groceries</option>
+            <!-- Add more options as needed -->
+        </select>
+        <br>
+        <button type="submit">Recommend Credit Card</button>
+    </form>
+:
+    {% if selected_card %}
+        <p>Use {{ selected_card }} for maximum rewards in the {{ category }} category.</p>
+    {% elif category %}
+        <p>No cards available for the {{ category }} category.</p>
+    {% endif %}
+</body>
+</html>
